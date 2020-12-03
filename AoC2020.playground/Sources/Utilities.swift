@@ -12,3 +12,28 @@ public class InputFileReader {
         return input
     }
 }
+
+public class SolutionOutputHandler {
+    public static func writeOutput(year: Int = 2020, challengeName: String, firstSolution: Int, secondSolution: Int) {
+
+        var firstLine = "Advent of Code \(year): Swift Playground"
+        firstLine.center(to: 50, with: " ")
+        
+        var secondLine = challengeName
+        secondLine.center(to: 50, with: " ")
+
+        let firstSolutionLine = "Part 1 solution: \(firstSolution)"
+        let secondSolutionLine = "Part 2 solution: \(secondSolution)"
+
+        print()
+        print(String(repeating: "-", count: 50))
+        print(firstLine)
+        print(secondLine)
+        print(String(repeating: "-", count: 50))
+        print()
+        print(firstSolutionLine)
+        print(secondSolutionLine)
+        print(String(repeating: "<>", count: 25))
+        print()
+    }
+}
