@@ -36,7 +36,17 @@ let slopes = [
     (1, 2)
 ]
 
-let firstSolution = navigator.treesEncountered(slope: .init(over: slopes[1].0, down: slopes[1].1))
-let secondSolution = slopes.map({ navigator.treesEncountered(slope: .init(over: $0.0, down: $0.1)) }).reduce(1, *)
+let day3Solution1 = navigator.treesEncountered(slope: .init(over: slopes[1].0, down: slopes[1].1))
+let day3Solution2 = slopes.map({ navigator.treesEncountered(slope: .init(over: $0.0, down: $0.1)) }).reduce(1, *)
 
-SolutionOutputHandler.writeOutput(challengeName: "Day 3: Toboggan Trajectory", firstSolution: firstSolution, secondSolution: secondSolution)
+SolutionOutputHandler.writeOutput(challengeName: "Day 3: Toboggan Trajectory", firstSolution: day3Solution1, secondSolution: day3Solution2)
+
+// MARK: Day 4
+
+let dayFourData = InputFileReader.readInput(id: "Day4", stringSeperator: "\n\n")
+
+let passportValidator = PassportValidator(passportData: dayFourData)
+let day4Solution1 = passportValidator.countValidPassports(with: .requiredFieldsPresent)
+let day4Solution2 = passportValidator.countValidPassports(with: .validateRequiredFieldValues)
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 4: Passport Processing", firstSolution: day4Solution1, secondSolution: day4Solution2)

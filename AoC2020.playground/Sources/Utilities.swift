@@ -11,6 +11,17 @@ public class InputFileReader {
         let input = fileContents.split(separator: separator).map(String.init)
         return input
     }
+
+    public static func readInput(id: String, stringSeperator: String) -> [String] {
+        guard let url = Bundle.main.url(forResource:"\(id)", withExtension: nil),
+              let fileContents = try? String(contentsOf: url, encoding: .utf8)
+        else {
+            fatalError("Can not get file")
+        }
+
+        let input = fileContents.components(separatedBy: stringSeperator)
+        return input
+    }
 }
 
 public class SolutionOutputHandler {
