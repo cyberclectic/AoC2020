@@ -1,7 +1,7 @@
 import Foundation
 
 public struct PasswordValidator {
-    public let passwords: [String]
+    let passwords: [String]
 
     public init(passwords: [String]) {
         self.passwords = passwords
@@ -19,9 +19,9 @@ public struct PasswordValidator {
 }
 
 public struct ParsedPasswordEntry {
-    public let positions: (Int, Int)
-    public let validCharacter: Character
-    public let password: String
+    let positions: (Int, Int)
+    let validCharacter: Character
+    let password: String
 
     public enum ValidationRule {
         case count

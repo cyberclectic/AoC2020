@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ExpenseReport {
-    public let lineItems: [Int]
+    let lineItems: [Int]
 
     public init(lineItems: [Int]) {
         self.lineItems = lineItems
@@ -19,7 +19,7 @@ public struct ExpenseReport {
         return values.reduce(1, *)
     }
 
-    internal func findValues(from startIndex: Int, sum: Int, lineItemCount: Int) -> [Int]? {
+    func findValues(from startIndex: Int, sum: Int, lineItemCount: Int) -> [Int]? {
         // If no more items to find and sum is zero, then the caller must have found a valid sequence.
         guard lineItemCount > 0 else {
             return sum == 0 ? [] : nil

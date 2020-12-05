@@ -7,11 +7,12 @@ public struct PassportValidator {
         case validateRequiredFieldValues
     }
 
-    public let passports: [String]
-    public let validationType: ValidationType = .requiredFieldsPresent
+    let passports: [String]
+    public var validationType: ValidationType
 
-    public init(passportData: [String]) {
-        self.passports = passportData.compactMap({ $0.replacingOccurrences(of: "\n", with: "") })
+    public init(passportData: [String], validationType: ValidationType = .requiredFieldsPresent) {
+        self.validationType = validationType
+        self.passports = passportData.compactMap({ $0.replacingOccurrences(of: "\n", with: " ") })
     }
 
     let requiredFields = [
@@ -61,7 +62,7 @@ public struct PassportValidator {
         return invalidPassportFields.isEmpty
     }
 
-    public func countValidPassports(with validationType: ValidationType) -> Int {
+    public func countValidPassports() -> Int {
         return passports.filter({ isValid(passportEntry: $0) }).count
     }
 }

@@ -45,8 +45,9 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 3: Toboggan Trajectory", f
 
 let dayFourData = InputFileReader.readInput(id: "Day4", stringSeperator: "\n\n")
 
-let passportValidator = PassportValidator(passportData: dayFourData)
-let day4Solution1 = passportValidator.countValidPassports(with: .requiredFieldsPresent)
-let day4Solution2 = passportValidator.countValidPassports(with: .validateRequiredFieldValues)
+var passportValidator = PassportValidator(passportData: dayFourData)
+let day4Solution1 = passportValidator.countValidPassports()
+passportValidator.validationType = .validateRequiredFieldValues
+let day4Solution2 = passportValidator.countValidPassports()
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 4: Passport Processing", firstSolution: day4Solution1, secondSolution: day4Solution2)

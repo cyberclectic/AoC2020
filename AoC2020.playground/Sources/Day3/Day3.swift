@@ -1,7 +1,7 @@
 import Foundation
 
 public struct SlopeNavigator {
-    public let mapEntries: [String]
+    let mapEntries: [String]
 
     public init(mapData: [String]) {
         self.mapEntries = mapData
