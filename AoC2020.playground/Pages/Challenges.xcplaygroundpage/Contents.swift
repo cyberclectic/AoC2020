@@ -4,7 +4,7 @@ import Foundation
 
 let dayOneData = InputFileReader.readInput(id: "Day1").compactMap({ Int($0) })
 
-let report = ExpenseReport(lineItems: dayOneData)
+let report = ExpenseReport(dayOneData)
 
 if let day1Solution1 = report.findProduct(sum: 2020, lineItemCount: 2),
    let day1Solution2 = report.findProduct(sum: 2020, lineItemCount: 3) {
@@ -16,9 +16,9 @@ if let day1Solution1 = report.findProduct(sum: 2020, lineItemCount: 2),
 
 let dayTwoData = InputFileReader.readInput(id: "Day2")
 
-let passwordValidator = PasswordValidator(passwords: dayTwoData)
-let day2Solution1 = passwordValidator.checkPasswords(policy: .count)
-let day2Solution2 = passwordValidator.checkPasswords(policy: .location)
+let passwordValidator = PasswordValidator(dayTwoData)
+let day2Solution1 = passwordValidator.checkPasswords(with: .count)
+let day2Solution2 = passwordValidator.checkPasswords(with: .location)
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 2: Password Philosophy", firstSolution: day2Solution1, secondSolution: day2Solution2)
 
@@ -36,8 +36,8 @@ let slopes = [
     (1, 2)
 ]
 
-let day3Solution1 = navigator.treesEncountered(slope: .init(over: slopes[1].0, down: slopes[1].1))
-let day3Solution2 = slopes.map({ navigator.treesEncountered(slope: .init(over: $0.0, down: $0.1)) }).reduce(1, *)
+let day3Solution1 = navigator.treesEncountered(.init(over: slopes[1].0, down: slopes[1].1))
+let day3Solution2 = slopes.map({ navigator.treesEncountered(.init(over: $0.0, down: $0.1)) }).reduce(1, *)
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 3: Toboggan Trajectory", firstSolution: day3Solution1, secondSolution: day3Solution2)
 
@@ -45,7 +45,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 3: Toboggan Trajectory", f
 
 let dayFourData = InputFileReader.readInput(id: "Day4", stringSeperator: "\n\n")
 
-var passportValidator = PassportValidator(passportData: dayFourData)
+var passportValidator = PassportValidator(dayFourData)
 let day4Solution1 = passportValidator.countValidPassports()
 passportValidator.validationType = .validateRequiredFieldValues
 let day4Solution2 = passportValidator.countValidPassports()
@@ -56,9 +56,21 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 4: Passport Processing", f
 
 let dayFiveData = InputFileReader.readInput(id: "Day5")
 
-let boardingPassHandler = BoardingPassHandler(boardingPasses: dayFiveData)
+let boardingPassHandler = BoardingPassHandler(dayFiveData)
 if  let day5Solution1 = boardingPassHandler.highestSeatID,
     let day5Solution2 = boardingPassHandler.mySeatID {
 
     SolutionOutputHandler.writeOutput(challengeName: "Day 5: Binary Boarding", firstSolution: day5Solution1, secondSolution: day5Solution2)
 }
+
+// MARK: Day 6
+
+let daySixData = InputFileReader.readInput(id: "Day6", stringSeperator: "\n\n")
+
+var customsFormsHandler = CustomsFormsHandler(daySixData, validationType: .anyoneInGroupPositive)
+let day6Solution1 = customsFormsHandler.customsTotals
+customsFormsHandler.validationType = .everyoneInGroupPositive
+let day6Solution2 = customsFormsHandler.customsTotals
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 6: Custom Customs", firstSolution: day6Solution1, secondSolution: day6Solution2)
+

@@ -3,11 +3,11 @@ import Foundation
 public struct PasswordValidator {
     let passwords: [String]
 
-    public init(passwords: [String]) {
+    public init(_ passwords: [String]) {
         self.passwords = passwords
     }
 
-    public func checkPasswords(policy: ParsedPasswordEntry.ValidationRule) -> Int {
+    public func checkPasswords(with policy: ParsedPasswordEntry.ValidationRule) -> Int {
         return passwords.reduce(0) { count, line in
             if ParsedPasswordEntry(string: line)?.validate(policy: policy) == true {
                 return count + 1

@@ -3,16 +3,6 @@ import XCTest
 
 import Challenges_PageSources
 
-// Test Observer
-class TestObserver: NSObject, XCTestObservation {
-    public func testCase(_ testCase: XCTestCase,
-                  didFailWithDescription description: String,
-                  inFile filePath: String?,
-                  atLine lineNumber: Int) {
-        assertionFailure("🛑🛑🛑 " + description, line: UInt(lineNumber))
-    }
-}
-
 let testObserver = TestObserver()
 XCTestObservationCenter.shared.addTestObserver(testObserver)
 
@@ -26,7 +16,7 @@ class Day1Tests: XCTestCase {
     override func setUp() {
         day1TestData = InputFileReader.readInput(id: "Day1Test").compactMap({ Int($0) })
 
-        report = ExpenseReport(lineItems: day1TestData)
+        report = ExpenseReport(day1TestData)
     }
 
     func testfindProduct() {
@@ -50,15 +40,15 @@ class Day2Tests: XCTestCase {
     override func setUp() {
         day2TestData = InputFileReader.readInput(id: "Day2Test")
 
-        passwordValidator = PasswordValidator(passwords: day2TestData)
+        passwordValidator = PasswordValidator(day2TestData)
     }
 
     func testCheckPasswords() {
-        let day2Test1 = passwordValidator.checkPasswords(policy: .count)
+        let day2Test1 = passwordValidator.checkPasswords(with: .count)
         XCTAssertNotNil(day2Test1)
         XCTAssertEqual(day2Test1, 2, "Day 2: Test 1 - Failed.")
 
-        let day2STest2 = passwordValidator.checkPasswords(policy: .location)
+        let day2STest2 = passwordValidator.checkPasswords(with: .location)
         XCTAssertNotNil(day2STest2)
         XCTAssertEqual(day2STest2, 1, "Day 2: Test 2 - Failed.")
     }
@@ -86,11 +76,11 @@ class Day3Tests: XCTestCase {
     }
 
     func testTreesEncountered() {
-        let day3Test1 = navigator.treesEncountered(slope: .init(over: slopes[1].0, down: slopes[1].1))
+        let day3Test1 = navigator.treesEncountered(.init(over: slopes[1].0, down: slopes[1].1))
         XCTAssertNotNil(day3Test1)
         XCTAssertEqual(day3Test1, 7, "Day 3: Test 1 - Failed.")
 
-        let day3Test2 = slopes.map({ navigator.treesEncountered(slope: .init(over: $0.0, down: $0.1)) }).reduce(1, *)
+        let day3Test2 = slopes.map({ navigator.treesEncountered(.init(over: $0.0, down: $0.1)) }).reduce(1, *)
         XCTAssertNotNil(day3Test2)
         XCTAssertEqual(day3Test2, 336, "Day 3: Test 2 - Failed.")
     }
@@ -106,7 +96,7 @@ class Day4Tests: XCTestCase {
     override func setUp() {
         day4TestData = InputFileReader.readInput(id: "Day4Test", stringSeperator: "\n\n")
 
-        passportValidator = PassportValidator(passportData: day4TestData)
+        passportValidator = PassportValidator(day4TestData)
     }
 
     func testCountValidPassports() {
@@ -131,7 +121,7 @@ class Day5Tests: XCTestCase {
     override func setUp() {
         day5TestData = InputFileReader.readInput(id: "Day5Test")
 
-        boardingPassHandler = BoardingPassHandler(boardingPasses: day5TestData)
+        boardingPassHandler = BoardingPassHandler(day5TestData)
     }
 
     func testHighestSeatID() {
@@ -146,3 +136,28 @@ class Day5Tests: XCTestCase {
     }
 }
 Day5Tests.defaultTestSuite.run()
+
+// MARK: Day 6
+
+class Day6Tests: XCTestCase {
+    var day6TestData: [String]!
+    var customsFormHandler: CustomsFormsHandler!
+
+    override func setUp() {
+
+        day6TestData = InputFileReader.readInput(id: "Day6Test", stringSeperator: "\n\n")
+        customsFormHandler = CustomsFormsHandler(day6TestData, validationType: .anyoneInGroupPositive)
+    }
+
+    func testDay6() {
+        let day6Test1 = customsFormHandler.customsTotals
+        XCTAssertNotNil(day6Test1)
+        XCTAssertEqual(day6Test1, 11, "Day 6: Test 1 - Failed.")
+
+        customsFormHandler.validationType = .everyoneInGroupPositive
+        let day6Test2 = customsFormHandler.customsTotals
+        XCTAssertNotNil(day6Test2)
+        XCTAssertEqual(day6Test2, 6, "Day 6: Test 2 - Failed.")
+    }
+}
+Day6Tests.defaultTestSuite.run()

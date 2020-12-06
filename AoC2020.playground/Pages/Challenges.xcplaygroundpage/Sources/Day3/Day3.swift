@@ -7,7 +7,7 @@ public struct SlopeNavigator {
         self.mapEntries = mapData
     }
 
-    public func treesEncountered(slope: Slope) -> Int {
+    public func treesEncountered(_ slope: Slope) -> Int {
         var treeCount = 0
         var position = Slope(over: 0, down: 0)
         while position.down < mapEntries.count {

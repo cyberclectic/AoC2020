@@ -10,9 +10,10 @@ public struct PassportValidator {
     let passports: [String]
     public var validationType: ValidationType
 
-    public init(passportData: [String], validationType: ValidationType = .requiredFieldsPresent) {
-        self.validationType = validationType
+    public init(_ passportData: [String], validationType: ValidationType = .requiredFieldsPresent) {
+        // Clean data as needed
         self.passports = passportData.compactMap({ $0.replacingOccurrences(of: "\n", with: " ") })
+        self.validationType = validationType
     }
 
     let requiredFields = [
@@ -26,7 +27,7 @@ public struct PassportValidator {
 
     let optionalFields = ["cid"]
 
-    public func isValid(passportEntry: String) -> Bool {
+    func isValid(passportEntry: String) -> Bool {
         // Since it looks like jSON - let's treat it like such.
         let scanner = Scanner(string: passportEntry)
         var fieldsAndValues: [String: String] = [:]

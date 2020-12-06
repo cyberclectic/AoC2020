@@ -3,7 +3,7 @@ import Foundation
 public struct ExpenseReport {
     let lineItems: [Int]
 
-    public init(lineItems: [Int]) {
+    public init(_ lineItems: [Int]) {
         self.lineItems = lineItems
     }
 

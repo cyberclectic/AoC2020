@@ -5,10 +5,10 @@ public struct BoardingPassHandler {
     let boardingPasses: [String]
 
     var boardingPassIDs: [Int] {
-        return boardingPasses.map({ (Int($0.map({ $0 == "F" || $0 == "L" ? "0" : "1" }).joined(), radix: 2)) }).sorted()
+        return boardingPasses.lazy.map({ (Int($0.lazy.map({ $0 == "F" || $0 == "L" ? "0" : "1" }).joined(), radix: 2) ?? 0) }).sorted()
     }
 
-    public init(boardingPasses: [String]) {
+    public init(_ boardingPasses: [String]) {
         self.boardingPasses = boardingPasses
     }
 
