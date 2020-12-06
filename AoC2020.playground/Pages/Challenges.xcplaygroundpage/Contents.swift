@@ -51,3 +51,14 @@ passportValidator.validationType = .validateRequiredFieldValues
 let day4Solution2 = passportValidator.countValidPassports()
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 4: Passport Processing", firstSolution: day4Solution1, secondSolution: day4Solution2)
+
+// MARK: Day 5
+
+let dayFiveData = InputFileReader.readInput(id: "Day5")
+
+let boardingPassHandler = BoardingPassHandler(boardingPasses: dayFiveData)
+if  let day5Solution1 = boardingPassHandler.highestSeatID,
+    let day5Solution2 = boardingPassHandler.mySeatID {
+
+    SolutionOutputHandler.writeOutput(challengeName: "Day 5: Binary Boarding", firstSolution: day5Solution1, secondSolution: day5Solution2)
+}

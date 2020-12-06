@@ -121,3 +121,28 @@ class Day4Tests: XCTestCase {
     }
 }
 Day4Tests.defaultTestSuite.run()
+
+// MARK: Day 5
+
+class Day5Tests: XCTestCase {
+    var day5TestData: [String]!
+    var boardingPassHandler: BoardingPassHandler!
+
+    override func setUp() {
+        day5TestData = InputFileReader.readInput(id: "Day5Test")
+
+        boardingPassHandler = BoardingPassHandler(boardingPasses: day5TestData)
+    }
+
+    func testHighestSeatID() {
+
+        let day5Test1 = boardingPassHandler.highestSeatID
+        XCTAssertNotNil(day5Test1)
+        XCTAssertEqual(day5Test1, 959, "Day 5: Test 1 - Failed.")
+
+        let day5Test2 = boardingPassHandler.mySeatID
+        XCTAssertNotNil(day5Test2)
+        XCTAssertEqual(day5Test2, 958, "Day 5: Test 2 - Failed.")
+    }
+}
+Day5Tests.defaultTestSuite.run()
