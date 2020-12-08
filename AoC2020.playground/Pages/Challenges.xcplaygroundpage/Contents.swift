@@ -74,3 +74,13 @@ let day6Solution2 = customsFormsHandler.customsTotals
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 6: Custom Customs", firstSolution: day6Solution1, secondSolution: day6Solution2)
 
+// MARK: Day 7
+
+let daySevenData = InputFileReader.readInput(id: "Day7")
+
+let bagHandler = BagHandler(daySevenData)
+let day7Solution1 = bagHandler.possibleBags(for: "shiny gold").count
+let day7Solution2 = bagHandler.bagContainsCount(by: "shiny gold")
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 7: Handy Haversacks", firstSolution: day7Solution1, secondSolution: day7Solution2)
+
