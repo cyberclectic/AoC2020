@@ -84,3 +84,13 @@ let day7Solution2 = bagHandler.bagContainsCount(by: "shiny gold")
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 7: Handy Haversacks", firstSolution: day7Solution1, secondSolution: day7Solution2)
 
+
+// MARK: Day 8
+
+let dayEightData = InputFileReader.readInput(id: "Day8")
+
+let instructionHandler = InstructionHandler(dayEightData)
+let day8Solution1 = instructionHandler.accumulatedTotal().value
+let day8Solution2 = instructionHandler.completedTotal
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 8: Handheld Halting", firstSolution: day8Solution1, secondSolution: day8Solution2)
