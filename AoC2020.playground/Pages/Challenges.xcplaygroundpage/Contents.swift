@@ -94,3 +94,13 @@ let day8Solution1 = instructionHandler.accumulatedTotal().value
 let day8Solution2 = instructionHandler.completedTotal
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 8: Handheld Halting", firstSolution: day8Solution1, secondSolution: day8Solution2)
+
+// MARK: Day 9
+
+let dayNineData = InputFileReader.readInput(id: "Day9")
+
+let cypherHandler = CypherHandler(dayNineData)
+let day9Solution1 = cypherHandler.cypherNonSum(withPreamble: 25)
+let day9Solution2 = cypherHandler.cypherWeakness(withPreamble: 25)
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 9: Encoding Error", firstSolution: day9Solution1, secondSolution: day9Solution2)
