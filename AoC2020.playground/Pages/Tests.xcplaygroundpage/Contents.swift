@@ -221,8 +221,28 @@ class Day9Tests: XCTestCase {
     }
 
     func testDay9() {
-        XCTAssertEqual(cypherHandler.cypherNonSum(withPreamble: 5), 127, "Day 8: Test 1 - Failed.")
-        XCTAssertEqual(cypherHandler.cypherWeakness(withPreamble: 5), 62, "Day 8: Test 2 - Failed.")
+        XCTAssertEqual(cypherHandler.cypherNonSum(withPreamble: 5), 127, "Day 9: Test 1 - Failed.")
+        XCTAssertEqual(cypherHandler.cypherWeakness(withPreamble: 5), 62, "Day 9: Test 2 - Failed.")
     }
 }
 Day9Tests.defaultTestSuite.run()
+
+// MARK: Day 10
+
+class Day10Tests: XCTestCase {
+
+    var day10TestData: [String]!
+    var adapterHandler: AdapterHandler!
+
+    override func setUp() {
+
+        day10TestData = InputFileReader.readInput(id: "Day10Test")
+        adapterHandler = AdapterHandler(day10TestData)
+    }
+
+    func testDay9() {
+        XCTAssertEqual(adapterHandler.adapterProduct, 220, "Day 10: Test 1 - Failed.")
+        XCTAssertEqual(adapterHandler.adapterPossibilities, 19208, "Day 10: Test 2 - Failed.")
+    }
+}
+Day10Tests.defaultTestSuite.run()

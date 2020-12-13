@@ -104,3 +104,13 @@ let day9Solution1 = cypherHandler.cypherNonSum(withPreamble: 25)
 let day9Solution2 = cypherHandler.cypherWeakness(withPreamble: 25)
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 9: Encoding Error", firstSolution: day9Solution1, secondSolution: day9Solution2)
+
+// MARK: Day 10
+
+let dayTenData = InputFileReader.readInput(id: "Day10")
+
+let adapterHandler = AdapterHandler(dayTenData)
+let day10Solution1 = adapterHandler.adapterProduct
+let day10Solution2 = adapterHandler.adapterPossibilities
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 10: Adapter Array", firstSolution: day10Solution1, secondSolution: day10Solution2)
