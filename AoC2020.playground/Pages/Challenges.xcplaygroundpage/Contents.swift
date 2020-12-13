@@ -114,3 +114,17 @@ let day10Solution1 = adapterHandler.adapterProduct
 let day10Solution2 = adapterHandler.adapterPossibilities
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 10: Adapter Array", firstSolution: day10Solution1, secondSolution: day10Solution2)
+
+// MARK: Day 11
+
+let dayElevenData = InputFileReader.readInput(id: "Day11")
+
+var seatHandler = SeatHandler(dayElevenData, seatingPreference: .adjacent)
+seatHandler.processRules()
+let day11Solution1 = seatHandler.occupiedSeats
+
+seatHandler = SeatHandler(dayElevenData, seatingPreference: .visible)
+seatHandler.processRules()
+let day11Solution2 = seatHandler.occupiedSeats
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 11: Seating System", firstSolution: day11Solution1, secondSolution: day11Solution2)

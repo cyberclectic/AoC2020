@@ -240,9 +240,33 @@ class Day10Tests: XCTestCase {
         adapterHandler = AdapterHandler(day10TestData)
     }
 
-    func testDay9() {
+    func testDay10() {
         XCTAssertEqual(adapterHandler.adapterProduct, 220, "Day 10: Test 1 - Failed.")
         XCTAssertEqual(adapterHandler.adapterPossibilities, 19208, "Day 10: Test 2 - Failed.")
     }
 }
 Day10Tests.defaultTestSuite.run()
+
+// MARK: Day 11
+
+class Day11Tests: XCTestCase {
+
+    var day11TestData: [String]!
+    var seatHandler: SeatHandler!
+
+    override func setUp() {
+
+        day11TestData = InputFileReader.readInput(id: "Day11Test")
+    }
+
+    func testDay11() {
+        seatHandler = SeatHandler(day11TestData, preference: .adjacent)
+        seatHandler.processRules()
+        XCTAssertEqual(seatHandler.occupiedSeats, 37, "Day 11: Test 1 - Failed.")
+
+        seatHandler = SeatHandler(day11TestData, preference: .visible)
+        seatHandler.processRules()
+        XCTAssertEqual(adapterHandler.adapterPossibilities, 26, "Day 11: Test 2 - Failed.")
+    }
+}
+Day11Tests.defaultTestSuite.run()
