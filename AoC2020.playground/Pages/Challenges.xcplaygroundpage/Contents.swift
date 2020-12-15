@@ -128,3 +128,14 @@ seatHandler.processRules()
 let day11Solution2 = seatHandler.occupiedSeats
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 11: Seating System", firstSolution: day11Solution1, secondSolution: day11Solution2)
+
+// MARK: Day 12
+
+let dayTwelveData = InputFileReader.readInput(id: "Day12")
+
+var shipHandler = ShipHandler(dayTwelveData)
+let day12Solution1 = shipHandler.manhattanDistance(navigationType: .grid)
+shipHandler = ShipHandler(dayTwelveData)
+let day12Solution2 = shipHandler.manhattanDistance(navigationType: .waypoint)
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 12: Rain Risk", firstSolution: day12Solution1, secondSolution: day12Solution2)
