@@ -103,11 +103,5 @@ public struct ShipHandler {
     }
 }
 
-extension Int {
-    func waypointValidator(_ closure: () -> Void) {
-        (0..<self).forEach { _ in closure() }
-    }
-}
-
 infix operator %%
 func %%(_ lhs: Int, _ rhs: Int) -> Int { lhs % rhs >= 0 ? lhs % rhs : lhs % rhs + rhs }

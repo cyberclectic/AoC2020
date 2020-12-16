@@ -139,3 +139,13 @@ shipHandler = ShipHandler(dayTwelveData)
 let day12Solution2 = shipHandler.manhattanDistance(navigationType: .waypoint)
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 12: Rain Risk", firstSolution: day12Solution1, secondSolution: day12Solution2)
+
+// MARK: Day 13
+
+let dayThirteenData = InputFileReader.readInput(id: "Day13")
+
+var shuttleHandler = ShuttleHandler(dayThirteenData)
+let day13Solution1 = shuttleHandler.earliestBusProduct
+let day13Solution2 = shuttleHandler.earliestSynchronizedDeparture
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 13: Shuttle Search", firstSolution: day13Solution1, secondSolution: day13Solution2)

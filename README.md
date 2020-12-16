@@ -10,7 +10,8 @@
 [--- Day 9: Encoding Error ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day9) ⭐️⭐️\
 [--- Day 10: Adapter Array ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day10) ⭐️⭐️\
 [--- Day 11: Seating System ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day11) ⭐️⭐️\
-[--- Day 12: Shuttle Search ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day12) ⭐️⭐️
+[--- Day 12: Rain Risk ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day12) ⭐️⭐️\
+[--- Day 13: Shuttle Search ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day13) ⭐️⭐️
 
 
 ### Tests

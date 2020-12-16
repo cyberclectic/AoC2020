@@ -23,3 +23,9 @@ public extension String {
     }
 
 }
+
+public extension Int {
+    func waypointValidator(_ closure: () -> Void) {
+        (0..<self).forEach { _ in closure() }
+    }
+}
