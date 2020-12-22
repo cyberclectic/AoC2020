@@ -14,7 +14,7 @@ class Day1Tests: XCTestCase {
     var report: ExpenseReport!
 
     override func setUp() {
-        day1TestData = InputFileReader.readInput(id: "Day1Test").compactMap({ Int($0) })
+        day1TestData = InputFileReader.readInput("Day1Test").compactMap({ Int($0) })
 
         report = ExpenseReport(day1TestData)
     }
@@ -38,7 +38,7 @@ class Day2Tests: XCTestCase {
     var passwordValidator: PasswordValidator!
 
     override func setUp() {
-        day2TestData = InputFileReader.readInput(id: "Day2Test")
+        day2TestData = InputFileReader.readInput("Day2Test")
 
         passwordValidator = PasswordValidator(day2TestData)
     }
@@ -70,7 +70,7 @@ class Day3Tests: XCTestCase {
     ]
 
     override func setUp() {
-        day3TestData = InputFileReader.readInput(id: "Day3Test")
+        day3TestData = InputFileReader.readInput("Day3Test")
 
         navigator = SlopeNavigator(mapData: day3TestData)
     }
@@ -94,7 +94,7 @@ class Day4Tests: XCTestCase {
     var passportValidator: PassportValidator!
 
     override func setUp() {
-        day4TestData = InputFileReader.readInput(id: "Day4Test", stringSeperator: "\n\n")
+        day4TestData = InputFileReader.readInput("Day4Test", stringSeperator: "\n\n")
 
         passportValidator = PassportValidator(day4TestData)
     }
@@ -119,7 +119,7 @@ class Day5Tests: XCTestCase {
     var boardingPassHandler: BoardingPassHandler!
 
     override func setUp() {
-        day5TestData = InputFileReader.readInput(id: "Day5Test")
+        day5TestData = InputFileReader.readInput("Day5Test")
 
         boardingPassHandler = BoardingPassHandler(day5TestData)
     }
@@ -145,7 +145,7 @@ class Day6Tests: XCTestCase {
 
     override func setUp() {
 
-        day6TestData = InputFileReader.readInput(id: "Day6Test", stringSeperator: "\n\n")
+        day6TestData = InputFileReader.readInput("Day6Test", stringSeperator: "\n\n")
         customsFormHandler = CustomsFormsHandler(day6TestData, validationType: .anyoneInGroupPositive)
     }
 
@@ -171,7 +171,7 @@ class Day7Tests: XCTestCase {
 
         override func setUp() {
 
-            day7TestData = InputFileReader.readInput(id: "Day7Test")
+            day7TestData = InputFileReader.readInput("Day7Test")
             bagHandler = BagHandler(day7TestData)
         }
 
@@ -196,7 +196,7 @@ class Day8Tests: XCTestCase {
 
     override func setUp() {
 
-        day8TestData = InputFileReader.readInput(id: "Day8Test")
+        day8TestData = InputFileReader.readInput("Day8Test")
         instructionHandler = InstructionHandler(day8TestData)
     }
 
@@ -216,7 +216,7 @@ class Day9Tests: XCTestCase {
 
     override func setUp() {
 
-        day9TestData = InputFileReader.readInput(id: "Day9Test")
+        day9TestData = InputFileReader.readInput("Day9Test")
         cypherHandler = CypherHandler(day9TestData)
     }
 
@@ -236,7 +236,7 @@ class Day10Tests: XCTestCase {
 
     override func setUp() {
 
-        day10TestData = InputFileReader.readInput(id: "Day10Test")
+        day10TestData = InputFileReader.readInput("Day10Test")
         adapterHandler = AdapterHandler(day10TestData)
     }
 
@@ -256,7 +256,7 @@ class Day11Tests: XCTestCase {
 
     override func setUp() {
 
-        day11TestData = InputFileReader.readInput(id: "Day11Test")
+        day11TestData = InputFileReader.readInput("Day11Test")
     }
 
     func testDay11() {
@@ -280,7 +280,7 @@ class Day12Tests: XCTestCase {
 
     override func setUp() {
 
-        day12TestData = InputFileReader.readInput(id: "Day12Test")
+        day12TestData = InputFileReader.readInput("Day12Test")
     }
 
     func testDay12() {

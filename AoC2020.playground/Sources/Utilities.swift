@@ -1,8 +1,8 @@
 import Foundation
 
 public class InputFileReader {
-    public static func readInput(id: String, separator: Character = "\n") -> [String] {
-        guard let url = Bundle.main.url(forResource:"\(id)", withExtension: nil),
+    public static func readInput(_ fileID: String, separator: Character = "\n") -> [String] {
+        guard let url = Bundle.main.url(forResource: "\(fileID)", withExtension: nil),
               let fileContents = try? String(contentsOf: url, encoding: .utf8)
         else {
             fatalError("Can not get file")
@@ -12,8 +12,8 @@ public class InputFileReader {
         return input
     }
 
-    public static func readInput(id: String, stringSeperator: String) -> [String] {
-        guard let url = Bundle.main.url(forResource:"\(id)", withExtension: nil),
+    public static func readInput(_ fileID: String, stringSeperator: String) -> [String] {
+        guard let url = Bundle.main.url(forResource: "\(fileID)", withExtension: nil),
               let fileContents = try? String(contentsOf: url, encoding: .utf8)
         else {
             fatalError("Can not get file")
@@ -29,7 +29,7 @@ public class SolutionOutputHandler {
 
         var firstLine = "Advent of Code \(year): Swift Playground"
         firstLine.center(to: 50, with: " ")
-        
+
         var secondLine = challengeName
         secondLine.center(to: 50, with: " ")
 

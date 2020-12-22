@@ -1,8 +1,9 @@
 import Foundation
 
 public struct PassportValidator {
-    
+
     public enum ValidationType {
+
         case requiredFieldsPresent
         case validateRequiredFieldValues
     }
@@ -11,7 +12,8 @@ public struct PassportValidator {
     public var validationType: ValidationType
 
     public init(_ passportData: [String], validationType: ValidationType = .requiredFieldsPresent) {
-        // Clean data as needed
+
+        // Clean data as needed.
         self.passports = passportData.compactMap({ $0.replacingOccurrences(of: "\n", with: " ") })
         self.validationType = validationType
     }
@@ -28,18 +30,15 @@ public struct PassportValidator {
     let optionalFields = ["cid"]
 
     func isValid(passportEntry: String) -> Bool {
+
         // Since it looks like jSON - let's treat it like such.
         let scanner = Scanner(string: passportEntry)
         var fieldsAndValues: [String: String] = [:]
 
         while true {
-            guard let field = scanner.scanUpToString(":") else {
-                break
-            }
-            guard scanner.scanString(":") != nil else {
-                break
-            }
-            guard let value = scanner.scanUpToCharacters(from: .whitespaces) else {
+            guard let field = scanner.scanUpToString(":"),
+                  scanner.scanString(":") != nil,
+                  let value = scanner.scanUpToCharacters(from: .whitespaces) else {
                 break
             }
 
@@ -49,7 +48,8 @@ public struct PassportValidator {
         // If one of the required fields is missing, then it is an invalid passport.
         let invalidPassportFields = requiredFields.filter { field, rule in
             guard let value = fieldsAndValues[field] else {
-                return true // Missing
+                // Missing Passport.
+                return true
             }
 
             switch validationType {
@@ -64,6 +64,7 @@ public struct PassportValidator {
     }
 
     public func countValidPassports() -> Int {
+
         return passports.filter({ isValid(passportEntry: $0) }).count
     }
 }
@@ -98,10 +99,8 @@ func validEYR(_ string: String) -> Bool {
 func validHGT(_ string: String) -> Bool {
 
     let scanner = Scanner(string: string)
-    guard let height = scanner.scanInt() else {
-        return false
-    }
-    guard let unit = scanner.scanCharacters(from: .letters) else {
+    guard let height = scanner.scanInt(),
+          let unit = scanner.scanCharacters(from: .letters) else {
         return false
     }
 
@@ -117,10 +116,8 @@ func validHGT(_ string: String) -> Bool {
 func validHCL(_ string: String) -> Bool {
 
     let scanner = Scanner(string: string)
-    guard scanner.scanCharacter() == "#" else {
-        return false
-    }
-    guard let hex = scanner.scanCharacters(from: .alphanumerics) else {
+    guard scanner.scanCharacter() == "#",
+          let hex = scanner.scanCharacters(from: .alphanumerics) else {
         return false
     }
 
@@ -130,7 +127,6 @@ func validHCL(_ string: String) -> Bool {
 func validECL(_ string: String) -> Bool {
 
     return ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].contains(string)
-
 }
 
 func validPID(_ string: String) -> Bool {
@@ -139,5 +135,6 @@ func validPID(_ string: String) -> Bool {
     guard let identifier = scanner.scanCharacters(from: .decimalDigits) else {
         return false
     }
+
     return identifier.count == 9
 }

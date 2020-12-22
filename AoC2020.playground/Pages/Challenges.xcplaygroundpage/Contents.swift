@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: Day 1
 
-let dayOneData = InputFileReader.readInput(id: "Day1").compactMap({ Int($0) })
+let dayOneData = InputFileReader.readInput("Day1").compactMap({ Int($0) })
 
 let report = ExpenseReport(dayOneData)
 
@@ -14,7 +14,7 @@ if let day1Solution1 = report.findProduct(sum: 2020, lineItemCount: 2),
 
 // MARK: Day 2
 
-let dayTwoData = InputFileReader.readInput(id: "Day2")
+let dayTwoData = InputFileReader.readInput("Day2")
 
 let passwordValidator = PasswordValidator(dayTwoData)
 let day2Solution1 = passwordValidator.checkPasswords(with: .count)
@@ -24,7 +24,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 2: Password Philosophy", f
 
 // MARK: Day 3
 
-let dayThreeData = InputFileReader.readInput(id: "Day3")
+let dayThreeData = InputFileReader.readInput("Day3")
 
 let navigator = SlopeNavigator(mapData: dayThreeData)
 
@@ -43,7 +43,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 3: Toboggan Trajectory", f
 
 // MARK: Day 4
 
-let dayFourData = InputFileReader.readInput(id: "Day4", stringSeperator: "\n\n")
+let dayFourData = InputFileReader.readInput("Day4", stringSeperator: "\n\n")
 
 var passportValidator = PassportValidator(dayFourData)
 let day4Solution1 = passportValidator.countValidPassports()
@@ -54,7 +54,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 4: Passport Processing", f
 
 // MARK: Day 5
 
-let dayFiveData = InputFileReader.readInput(id: "Day5")
+let dayFiveData = InputFileReader.readInput("Day5")
 
 let boardingPassHandler = BoardingPassHandler(dayFiveData)
 if  let day5Solution1 = boardingPassHandler.highestSeatID,
@@ -65,7 +65,7 @@ if  let day5Solution1 = boardingPassHandler.highestSeatID,
 
 // MARK: Day 6
 
-let daySixData = InputFileReader.readInput(id: "Day6", stringSeperator: "\n\n")
+let daySixData = InputFileReader.readInput("Day6", stringSeperator: "\n\n")
 
 var customsFormsHandler = CustomsFormsHandler(daySixData, validationType: .anyoneInGroupPositive)
 let day6Solution1 = customsFormsHandler.customsTotals
@@ -76,7 +76,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 6: Custom Customs", firstS
 
 // MARK: Day 7
 
-let daySevenData = InputFileReader.readInput(id: "Day7")
+let daySevenData = InputFileReader.readInput("Day7")
 
 let bagHandler = BagHandler(daySevenData)
 let day7Solution1 = bagHandler.possibleBags(for: "shiny gold").count
@@ -84,10 +84,9 @@ let day7Solution2 = bagHandler.bagContainsCount(by: "shiny gold")
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 7: Handy Haversacks", firstSolution: day7Solution1, secondSolution: day7Solution2)
 
-
 // MARK: Day 8
 
-let dayEightData = InputFileReader.readInput(id: "Day8")
+let dayEightData = InputFileReader.readInput("Day8")
 
 let instructionHandler = InstructionHandler(dayEightData)
 let day8Solution1 = instructionHandler.accumulatedTotal().value
@@ -97,7 +96,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 8: Handheld Halting", firs
 
 // MARK: Day 9
 
-let dayNineData = InputFileReader.readInput(id: "Day9")
+let dayNineData = InputFileReader.readInput("Day9")
 
 let cypherHandler = CypherHandler(dayNineData)
 let day9Solution1 = cypherHandler.cypherNonSum(withPreamble: 25)
@@ -107,7 +106,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 9: Encoding Error", firstS
 
 // MARK: Day 10
 
-let dayTenData = InputFileReader.readInput(id: "Day10")
+let dayTenData = InputFileReader.readInput("Day10")
 
 let adapterHandler = AdapterHandler(dayTenData)
 let day10Solution1 = adapterHandler.adapterProduct
@@ -117,7 +116,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 10: Adapter Array", firstS
 
 // MARK: Day 11
 
-let dayElevenData = InputFileReader.readInput(id: "Day11")
+let dayElevenData = InputFileReader.readInput("Day11")
 
 var seatHandler = SeatHandler(dayElevenData, seatingPreference: .adjacent)
 seatHandler.processRules()
@@ -131,7 +130,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 11: Seating System", first
 
 // MARK: Day 12
 
-let dayTwelveData = InputFileReader.readInput(id: "Day12")
+let dayTwelveData = InputFileReader.readInput("Day12")
 
 var shipHandler = ShipHandler(dayTwelveData)
 let day12Solution1 = shipHandler.manhattanDistance(navigationType: .grid)
@@ -142,7 +141,7 @@ SolutionOutputHandler.writeOutput(challengeName: "Day 12: Rain Risk", firstSolut
 
 // MARK: Day 13
 
-let dayThirteenData = InputFileReader.readInput(id: "Day13")
+let dayThirteenData = InputFileReader.readInput("Day13")
 
 var shuttleHandler = ShuttleHandler(dayThirteenData)
 let day13Solution1 = shuttleHandler.earliestBusProduct

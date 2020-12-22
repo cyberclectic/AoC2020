@@ -1,35 +1,20 @@
-import Foundation
-
 public struct InstructionHandler {
-
-    public struct Instruction: Hashable {
-        enum OperationCommand: String {
-            case acc
-            case jmp
-            case nop
-        }
-
-        var operationType: OperationCommand
-        var argument: Int
-
-        init(_ operationType: OperationCommand, argument: Int) {
-            self.operationType = operationType
-            self.argument = argument
-        }
-    }
 
     let instructions: [String]
 
     public init(_ instructions: [String]) {
+
         self.instructions = instructions
     }
 
     public func accumulatedTotal() -> (value: Int, terminated: Bool) {
+
         let inputs: [Instruction] = instructions.lazy.compactMap({
             let components = $0.components(separatedBy: .whitespaces)
             guard let operation = Instruction.OperationCommand(rawValue: components[0]),
-                  let argument = Int(components[1])
-            else { fatalError("Bad line format") }
+                  let argument = Int(components[1]) else {
+                fatalError("Bad line format")
+            }
 
             return Instruction(operation, argument: argument)
 
@@ -57,23 +42,46 @@ public struct InstructionHandler {
         let inputs: [Instruction] = instructions.lazy.compactMap({
             let components = $0.components(separatedBy: .whitespaces)
             guard let operation = Instruction.OperationCommand(rawValue: components[0]),
-                  let argument = Int(components[1])
-            else { fatalError("Bad line format") }
+                  let argument = Int(components[1]) else {
+                fatalError("Bad line format")
+            }
 
             return Instruction(operation, argument: argument)
 
         })
 
-        for (idx, instruction) in inputs.enumerated() where instruction.operationType != .acc {
+        for (index, instruction) in inputs.enumerated() where instruction.operationType != .acc {
             var correctedInput = inputs
-            correctedInput[idx].operationType = instruction.operationType == .jmp ? .nop : .jmp
+            correctedInput[index].operationType = instruction.operationType == .jmp ? .nop : .jmp
             let mapped = correctedInput.map({ String($0.operationType.rawValue + " " + String($0.argument)) })
             let instructionHandler = InstructionHandler(mapped)
             let (accumulator, terminates) = instructionHandler.accumulatedTotal()
-            if terminates { return accumulator }
+
+            guard terminates else {
+                continue
+            }
+
+            return accumulator
         }
-        
+
         fatalError()
     }
 
+}
+
+public struct Instruction: Hashable {
+    enum OperationCommand: String {
+        case acc
+        case jmp
+        case nop
+    }
+
+    var operationType: OperationCommand
+    var argument: Int
+
+    init(_ operationType: OperationCommand, argument: Int) {
+
+        self.operationType = operationType
+        self.argument = argument
+    }
 }
