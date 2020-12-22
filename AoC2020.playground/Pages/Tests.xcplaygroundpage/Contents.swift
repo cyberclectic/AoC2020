@@ -301,7 +301,7 @@ class Day13Tests: XCTestCase {
 
     override func setUp() {
 
-        day13TestData = InputFileReader.readInput(id: "Day13Test")
+        day13TestData = InputFileReader.readInput("Day13Test")
         shuttleHandler = ShuttleHandler(day13TestData)
     }
 
@@ -311,3 +311,25 @@ class Day13Tests: XCTestCase {
     }
 }
 Day13Tests.defaultTestSuite.run()
+
+// MARK: Day 14
+
+class Day14Tests: XCTestCase {
+
+    var day14TestData: [String]!
+    var memoryHandler: MemoryHandler!
+
+    override func setUp() {
+
+        day14TestData = InputFileReader.readInput("Day14Test")
+        memoryHandler = MemoryHandler(day14TestData)
+    }
+
+    func testDay14() {
+        XCTAssertEqual(memoryHandler.memoryValuesTotal(), 165, "Day 14: Test 1 - Failed.")
+        day14TestData = InputFileReader.readInput("Day14Test2")
+        memoryHandler = MemoryHandler(day14TestData)
+        XCTAssertEqual(memoryHandler.memoryValuesTotalV2(), 208, "Day 14: Test 2 - Failed.")
+    }
+}
+Day14Tests.defaultTestSuite.run()

@@ -148,3 +148,13 @@ let day13Solution1 = shuttleHandler.earliestBusProduct
 let day13Solution2 = shuttleHandler.earliestSynchronizedDeparture
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 13: Shuttle Search", firstSolution: day13Solution1, secondSolution: day13Solution2)
+
+// MARK: Day 14
+
+let dayFourteenData = InputFileReader.readInput("Day14")
+
+var memoryHandler = MemoryHandler(dayFourteenData)
+let day14Solution1 = memoryHandler.memoryValuesTotal()
+let day14Solution2 = memoryHandler.memoryValuesTotalV2()
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 14: Docking Data", firstSolution: day14Solution1, secondSolution: day14Solution2)
