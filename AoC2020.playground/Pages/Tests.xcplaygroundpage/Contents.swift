@@ -333,3 +333,23 @@ class Day14Tests: XCTestCase {
     }
 }
 Day14Tests.defaultTestSuite.run()
+
+// MARK: Day 15
+
+class Day15Tests: XCTestCase {
+
+    var day15TestData: [String]!
+    var numberSpeaker: NumberSpeaker!
+
+    override func setUp() {
+
+        day15TestData = InputFileReader.readInput("Day15Test")
+        numberSpeaker = NumberSpeaker(day15TestData)
+    }
+
+    func testDay14() {
+        XCTAssertEqual(numberSpeaker.getNumberSpoken(at: 2020), 436, "Day 15: Test 1 - Failed.")
+        XCTAssertEqual(numberSpeaker.getNumberSpoken(at: 30000000), 175594, "Day 15: Test 2 - Failed.")
+    }
+}
+Day15Tests.defaultTestSuite.run()

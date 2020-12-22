@@ -158,3 +158,13 @@ let day14Solution1 = memoryHandler.memoryValuesTotal()
 let day14Solution2 = memoryHandler.memoryValuesTotalV2()
 
 SolutionOutputHandler.writeOutput(challengeName: "Day 14: Docking Data", firstSolution: day14Solution1, secondSolution: day14Solution2)
+
+// MARK: Day 15
+
+let dayFifteenData = InputFileReader.readInput("Day15")
+
+var numberSpeaker = NumberSpeaker(dayFifteenData)
+let day15Solution1 = numberSpeaker.getNumberSpoken(at: 2020)
+let day15Solution2 = numberSpeaker.getNumberSpoken(at: 30000000)
+
+SolutionOutputHandler.writeOutput(challengeName: "Day 15: Rambunctious Recitation", firstSolution: day15Solution1, secondSolution: day15Solution2)
