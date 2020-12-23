@@ -1,14 +1,11 @@
 public struct InstructionHandler {
-
     let instructions: [String]
 
     public init(_ instructions: [String]) {
-
         self.instructions = instructions
     }
 
     public func accumulatedTotal() -> (value: Int, terminated: Bool) {
-
         let inputs: [Instruction] = instructions.lazy.compactMap({
             let components = $0.components(separatedBy: .whitespaces)
             guard let operation = Instruction.OperationCommand(rawValue: components[0]),
@@ -80,7 +77,6 @@ public struct Instruction: Hashable {
     var argument: Int
 
     init(_ operationType: OperationCommand, argument: Int) {
-
         self.operationType = operationType
         self.argument = argument
     }

@@ -1,23 +1,14 @@
 import Foundation
 
 public struct PassportValidator {
-
     public enum ValidationType {
-
         case requiredFieldsPresent
         case validateRequiredFieldValues
     }
 
-    let passports: [String]
     public var validationType: ValidationType
 
-    public init(_ passportData: [String], validationType: ValidationType = .requiredFieldsPresent) {
-
-        // Clean data as needed.
-        self.passports = passportData.compactMap({ $0.replacingOccurrences(of: "\n", with: " ") })
-        self.validationType = validationType
-    }
-
+    let passports: [String]
     let requiredFields = [
         "byr": validBYR,
         "iyr": validIYR,
@@ -29,8 +20,13 @@ public struct PassportValidator {
 
     let optionalFields = ["cid"]
 
-    func isValid(passportEntry: String) -> Bool {
+    public init(_ passportData: [String], validationType: ValidationType = .requiredFieldsPresent) {
+        // Clean data as needed.
+        self.passports = passportData.compactMap({ $0.replacingOccurrences(of: "\n", with: " ") })
+        self.validationType = validationType
+    }
 
+    func isValid(passportEntry: String) -> Bool {
         // Since it looks like jSON - let's treat it like such.
         let scanner = Scanner(string: passportEntry)
         var fieldsAndValues: [String: String] = [:]
@@ -64,13 +60,11 @@ public struct PassportValidator {
     }
 
     public func countValidPassports() -> Int {
-
         return passports.filter({ isValid(passportEntry: $0) }).count
     }
 }
 
 func validBYR(_ string: String) -> Bool {
-
     guard let year = Int(string) else {
         return false
     }
@@ -79,7 +73,6 @@ func validBYR(_ string: String) -> Bool {
 }
 
 func validIYR(_ string: String) -> Bool {
-
     guard let year = Int(string) else {
         return false
     }
@@ -88,7 +81,6 @@ func validIYR(_ string: String) -> Bool {
 }
 
 func validEYR(_ string: String) -> Bool {
-
     guard let year = Int(string) else {
         return false
     }
@@ -97,7 +89,6 @@ func validEYR(_ string: String) -> Bool {
 }
 
 func validHGT(_ string: String) -> Bool {
-
     let scanner = Scanner(string: string)
     guard let height = scanner.scanInt(),
           let unit = scanner.scanCharacters(from: .letters) else {
@@ -114,7 +105,6 @@ func validHGT(_ string: String) -> Bool {
 }
 
 func validHCL(_ string: String) -> Bool {
-
     let scanner = Scanner(string: string)
     guard scanner.scanCharacter() == "#",
           let hex = scanner.scanCharacters(from: .alphanumerics) else {
@@ -125,12 +115,10 @@ func validHCL(_ string: String) -> Bool {
 }
 
 func validECL(_ string: String) -> Bool {
-
     return ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"].contains(string)
 }
 
 func validPID(_ string: String) -> Bool {
-
     let scanner = Scanner(string: string)
     guard let identifier = scanner.scanCharacters(from: .decimalDigits) else {
         return false

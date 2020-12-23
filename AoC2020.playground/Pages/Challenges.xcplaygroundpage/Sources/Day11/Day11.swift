@@ -1,12 +1,10 @@
 public struct SeatHandler {
     public enum SeatingPreference {
-
         case adjacent
         case visible
     }
 
     public enum PositionIndicator: Character {
-
         case floor = "."
         case empty = "L"
         case occupied = "#"
@@ -18,7 +16,6 @@ public struct SeatHandler {
     private let height: Int
 
     public init(_ input: [String], seatingPreference: SeatingPreference) {
-
         self.width = input.first?.count ?? 0
         self.height = input.count
         var positionIndicators: [PositionIndicator] = []
@@ -31,12 +28,10 @@ public struct SeatHandler {
     }
 
     public var occupiedSeats: Int {
-
         return positionIndicators.filter({ $0 == .occupied }).count
     }
 
     mutating public func advance() {
-
         let occupiedThreshold = (seatingPreference == .adjacent) ? 4 : 5
 
         positionIndicators = positionIndicators.enumerated().map { (index, position) in
@@ -66,7 +61,6 @@ public struct SeatHandler {
     let vectors = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
 
     public func countTakenSeats(for index: Int) -> Int {
-
         return vectors.filter { (vectorRow, vectorCol) in
             var row = index / width + vectorRow
             var column = index % width + vectorCol
@@ -89,13 +83,13 @@ public struct SeatHandler {
     }
 
     func isSeatTakenAt(row: Int, column: Int) -> Bool? {
-            switch positionIndicators[row * width + column] {
-            case .floor:
-                return nil
-            case .empty:
-                return false
-            case .occupied:
-                return true
-            }
+        switch positionIndicators[row * width + column] {
+        case .floor:
+            return nil
+        case .empty:
+            return false
+        case .occupied:
+            return true
         }
+    }
 }

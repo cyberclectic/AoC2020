@@ -12,14 +12,14 @@ public class InputFileReader {
         return input
     }
 
-    public static func readInput(_ fileID: String, stringSeperator: String) -> [String] {
+    public static func readInput(_ fileID: String, stringSeparator: String) -> [String] {
         guard let url = Bundle.main.url(forResource: "\(fileID)", withExtension: nil),
               let fileContents = try? String(contentsOf: url, encoding: .utf8)
         else {
             fatalError("Can not get file")
         }
 
-        let input = fileContents.components(separatedBy: stringSeperator)
+        let input = fileContents.components(separatedBy: stringSeparator)
         return input
     }
 }

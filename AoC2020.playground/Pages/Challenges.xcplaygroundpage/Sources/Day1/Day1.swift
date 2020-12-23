@@ -1,14 +1,11 @@
 public struct ExpenseReport {
-
     let lineItems: [Int]
 
     public init(_ lineItems: [Int]) {
-
         self.lineItems = lineItems
     }
 
     public func findProduct(sum: Int, lineItemCount: Int) -> Int? {
-
         guard lineItemCount > 0,
               let values = findValues(from: 0, sum: sum, lineItemCount: lineItemCount) else {
             return nil
@@ -18,7 +15,6 @@ public struct ExpenseReport {
     }
 
     func findValues(from startIndex: Int, sum: Int, lineItemCount: Int) -> [Int]? {
-
         // If no more items to find and sum is zero, then the caller must have found a valid sequence.
         guard lineItemCount > 0 else {
             return sum == 0 ? [] : nil

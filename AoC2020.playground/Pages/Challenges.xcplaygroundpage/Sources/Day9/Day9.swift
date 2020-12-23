@@ -1,14 +1,11 @@
 public struct CypherHandler {
-
     let cyphers: [Int]
 
     public init(_ cypher: [String]) {
-
         self.cyphers = cypher.compactMap({ Int($0) })
     }
 
     public func cypherNonSum(withPreamble preambleLength: Int) -> Int {
-
         // Only process from the preamble length index onward.
         for index in cyphers.indices.dropFirst(preambleLength) {
             // Create a set of values from the current index minus the preamble length to the current index.
@@ -32,7 +29,6 @@ public struct CypherHandler {
     }
 
     public func cypherWeakness(withPreamble preambleLength: Int) -> Int {
-
         // First get our target value.
         let targetValue = cypherNonSum(withPreamble: preambleLength)
 
@@ -62,5 +58,4 @@ public struct CypherHandler {
 
         fatalError()
     }
-
 }

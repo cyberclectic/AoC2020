@@ -1,14 +1,11 @@
 public struct AdapterHandler {
-
     let adapters: [Int]
 
     public init(_ adapters: [String]) {
-
         self.adapters = adapters.compactMap({ Int($0) }).sorted()
     }
 
     public var adapterProduct: Int {
-
         let allAdapters = [0] + adapters + [adapters.last ?? 0 + 3]
         var oneJoltAdapters = 0, threeJoltAdapters = 0
 
@@ -50,5 +47,4 @@ public struct AdapterHandler {
 
         return possibleAdapters
     }
-
 }

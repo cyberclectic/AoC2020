@@ -7,8 +7,7 @@ public struct ShuttleHandler {
         var offset: Int
     }
 
-   public init(_ input: [String]) {
-
+    public init(_ input: [String]) {
         guard let estimatedTimestampString = input.first,
               let estimatedTimestamp = Int(estimatedTimestampString) else {
             fatalError()
@@ -32,7 +31,6 @@ public struct ShuttleHandler {
     }
 
     public var earliestSynchronizedDeparture: Int {
-
         guard let busIDs = input.last?.components(separatedBy: ",").map({ Int($0) }) else {
             fatalError()
         }
@@ -59,7 +57,6 @@ public struct ShuttleHandler {
     }
 
     func matchedTimestampBusIDs(for timestamp: Int, with busIDsByIndex: [Int: Int]) -> [Int] {
-
         var result: [Int] = []
 
         for (index, busID) in busIDsByIndex where (timestamp + index) % busID == 0 {

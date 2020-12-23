@@ -1,14 +1,11 @@
 public struct MemoryHandler {
-
     var input: [String]
 
     public init(_ input: [String]) {
-
         self.input = input
     }
 
     public mutating func memoryValuesTotal() -> Int {
-
         var mask = ""
         var memoryValues: [Int: Int] = [:]
 
@@ -27,7 +24,7 @@ public struct MemoryHandler {
                     let char = correctedValue[correctedValue.index(correctedValue.startIndex, offsetBy: index)]
 
                     if char != maskChar,
-                        maskChar != "X" {
+                       maskChar != "X" {
                         let newValue = correctedValue.prefix(index) + String(maskChar) + correctedValue.dropFirst(index + 1 )
                         correctedValue = String(newValue)
                     }
@@ -41,9 +38,7 @@ public struct MemoryHandler {
     }
 
     public mutating func memoryValuesTotalV2() -> Int {
-
         var mask = ""
-
         var memoryValues: [Int: Int] = [:]
 
         for line in input {

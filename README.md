@@ -13,7 +13,8 @@
 [--- Day 12: Rain Risk ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day12) ⭐️⭐️\
 [--- Day 13: Shuttle Search ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day13) ⭐️⭐️\
 [--- Day 14: Docking Data ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day14) ⭐️⭐️\
-[--- Day 15: Rambunctious Recitation ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day15) ⭐️⭐️
+[--- Day 15: Rambunctious Recitation ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day15) ⭐️⭐️\
+[--- Day 16: Ticket Translation ---](https://github.com/cyberclectic/AoC2020/tree/main/AoC2020.playground/Pages/Challenges.xcplaygroundpage/Sources/Day16) ⭐️⭐️
 
 
 ### Tests

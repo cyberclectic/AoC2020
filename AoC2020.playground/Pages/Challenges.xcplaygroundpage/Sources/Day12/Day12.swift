@@ -35,7 +35,6 @@ public struct ShipHandler {
     private var lineActions: [LineAction] = []
 
     public init (_ instructions: [String]) {
-
         for instruction in instructions {
             let lineScanner = Scanner(string: instruction)
             guard let action = Action(rawValue: lineScanner.scanCharacter() ?? "U"),
@@ -48,13 +47,11 @@ public struct ShipHandler {
     }
 
     public mutating func manhattanDistance(navigationType: NavigationType) -> Int {
-
         processRules(navigationType: navigationType)
         return abs(currentShipRow) + abs(currentShipColumn)
     }
 
     private mutating func processRules(navigationType: NavigationType) {
-
         switch navigationType {
         case .grid:
             gridOrientation()
@@ -64,7 +61,6 @@ public struct ShipHandler {
     }
 
     private mutating func gridOrientation() {
-
         let directions: [(east: Int, north: Int)] = [(1, 0), (0, -1), (-1, 0), (0, 1)]
         var direction = ShipHandler.Heading.east.rawValue
         var ship = (east: 0, north: 0)
@@ -88,7 +84,6 @@ public struct ShipHandler {
     }
 
     private mutating func waypointOrientation() {
-
         var ship = (east: 0, north: 0)
         var waypoint = (east: 10, north: 1)
 
